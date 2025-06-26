@@ -1,0 +1,26 @@
+<mvc:View
+  controllerName="in.aryan.task.project1.controller.Detail"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m">
+
+  <Page
+    id="detailPage"
+    title="Product Details"
+    showNavButton="true"
+    navButtonPress=".onNavBack">
+
+    <content>
+      <ObjectHeader
+        title="{ProductName}"
+        number="{UnitPrice}"
+        numberUnit="USD"
+        intro="Product ID: {ProductID}" />
+
+      <VBox class="sapUiSmallMargin">
+        <Text text="Quantity per Unit: {QuantityPerUnit}" />
+        <Text text="Units in Stock: {UnitsInStock}" />
+        <Text text="Discontinued: {Discontinued}" />
+      </VBox>
+    </content>
+  </Page>
+</mvc:View>
