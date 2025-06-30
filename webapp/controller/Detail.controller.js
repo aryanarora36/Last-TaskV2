@@ -9,17 +9,17 @@ sap.ui.define([
       this.getOwnerComponent().getRouter()
         .getRoute("RouteDetail")
         .attachPatternMatched(this._onObjectMatched, this);
-    },
+    }, 
 
     _onObjectMatched: function (oEvent) {
-      const sProductId = oEvent.getParameter("arguments").productId;
+      const sProductId = oEvent.getParameter("arguments").productId; // Gets the product ID from the route parameters.
       this.getView().bindElement({
-        path: "/Products(" + sProductId + ")"
+        path: "/Products(" + sProductId + ")" // view ko batata hai to show data from /Products(1) if sProductId = 1.
       });
     },
 
     onNavBack: function () {
-      this.getOwnerComponent().getRouter().navTo("RouteMain", {
+      this.getOwnerComponent().getRouter().navTo("RouteMain", { //Navigates to the main view.
         layout: "OneColumn"
       });
     }

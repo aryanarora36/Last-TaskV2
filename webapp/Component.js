@@ -12,7 +12,7 @@ sap.ui.define([
             ]
         },
 
-        init() {
+        init() { //life cycle func
             // call the base component's init function
             UIComponent.prototype.init.apply(this, arguments);
 

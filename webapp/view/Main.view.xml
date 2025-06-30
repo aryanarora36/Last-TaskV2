@@ -4,7 +4,7 @@
     xmlns:core="sap.ui.core"
     id="Main">
 
-    <Page id="MainPage" title="Product List">
+    <Page id="MainPage" title="{i18n>ProductList}">
         <content>
             <!-- Search Bar -->
             <SearchField
@@ -13,10 +13,17 @@
                 placeholder="Search by Product Name"
                 search=".onSearch" />
 
-            <!-- Toolbar with Show Chart Button -->
+            <!-- Toolbar with Sort and Chart Button -->
             <OverflowToolbar>
+                <Text text="{i18n>Sortby}" />
+                <Select id="sortSelect" change=".onSortChange">
+                    <items>
+                        <core:Item key="ProductName" text="{i18n>Name}" />
+                        <core:Item key="UnitPrice" text="{i18n>Price}" />
+                    </items>
+                </Select>
                 <ToolbarSpacer />
-                <Button text="Show Chart" press=".onShowChart" />
+                <Button text="{i18n>ShowChart}" press=".onShowChart" />
             </OverflowToolbar>
 
             <!-- Responsive Table -->
@@ -36,9 +43,10 @@
                 busyIndicatorDelay="0">
 
                 <columns>
-                    <Column><Text text="ID" /></Column>
-                    <Column><Text text="Name" /></Column>
-                    <Column><Text text="Price (USD)" /></Column>
+                    <Column><Text text="{i18n>eID}" /></Column>
+                    <Column><Text text="{i18n>eName}" /></Column>
+                    <Column><Text text="{i18n>ePrice.USD}" /></Column>
+                    <Column><Text text="{i18n>eProduct}" /></Column>
                 </columns>
 
                 <items>
@@ -47,6 +55,9 @@
                             <Text text="{ProductID}" />
                             <Text text="{ProductName}" />
                             <Text text="{UnitPrice}" />
+                            <ObjectStatus 
+                                text="{path: 'Discontinued', formatter: '.formatter.discontinuedStatus'}"
+                                state="{path: 'Discontinued', formatter: '.formatter.discontinuedColor'}" />
                         </cells>
                     </ColumnListItem>
                 </items>

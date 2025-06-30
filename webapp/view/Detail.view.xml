@@ -5,7 +5,7 @@
 
   <Page
     id="detailPage"
-    title="Product Details"
+    title="{i18n>ProductDetails}"
     showNavButton="true"
     navButtonPress=".onNavBack">
 
@@ -14,12 +14,12 @@
         title="{ProductName}"
         number="{UnitPrice}"
         numberUnit="USD"
-        intro="Product ID: {ProductID}" />
+        intro="{i18n>ProductID} {ProductID}" />
 
       <VBox class="sapUiSmallMargin">
-        <Text text="Quantity per Unit: {QuantityPerUnit}" />
-        <Text text="Units in Stock: {UnitsInStock}" />
-        <Text text="Discontinued: {Discontinued}" />
+        <Text text="{i18n>QuantityperUnit} {QuantityPerUnit}" />
+        <Text text="{i18n>UnitsinStock} {UnitsInStock}" />
+        <Text text="{i18n>Discontinued} {Discontinued}" />
       </VBox>
     </content>
   </Page>
